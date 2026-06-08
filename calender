@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金秋桂雨 ｜ 2026 丙午年 · 9月桂月主題月曆</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Noto Serif TC', 'Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        osmanthus: {
+                            gold: '#D4AF37',
+                            goldLight: '#F3E5AB',
+                            goldDark: '#AA7C11',
+                            orange: '#E07A5F',
+                            silver: '#ECE9E6',
+                            leaf: '#2D5A27',
+                            leafDark: '#1E3F20',
+                            charcoal: '#2F3E46'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Serif TC', serif;
+            background-color: #FAF6F0;
+        }
+        .transition-theme {
+            transition: all 0.5s ease-in-out;
+        }
+        /* 列印樣式優化 */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-card {
+                border: none !important;
+                box-shadow: none !important;
+                background: white !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0px !important;
+            }
+            .print-grid {
+                display: grid !important;
+                grid-template-cols: repeat(12, minmax(0, 1fr)) !important;
+            }
+            .print-sidebar {
+                grid-column: span 4 / span 4 !important;
+                background-image: linear-gradient(rgba(45, 30, 10, 0.8), rgba(45, 30, 10, 0.9)), url('image_cf9e93.jpg') !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .print-calendar {
+                grid-column: span 8 / span 8 !important;
+            }
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F3E5AB20;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #AA7C1140;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-osmanthus-charcoal relative overflow-x-hidden transition-theme pb-12">
+
+    <!-- 背景花雨 Canvas -->
+    <canvas id="petal-canvas" class="absolute inset-0 pointer-events-none z-10 no-print"></canvas>
+
+    <!-- 頂部導覽列 -->
+    <header class="border-b border-amber-100 bg-white/70 backdrop-blur-md sticky top-0 z-30 no-print">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <span class="text-3xl animate-bounce">🌼</span>
+                <div>
+                    <h1 class="text-xl font-bold tracking-wider text-osmanthus-leafDark">金秋桂雨 · 歲時月曆</h1>
+                    <p class="text-xs text-amber-800/70">「桂子月中落，天香雲外飄」— 2026 丙午年 · 9月特別紀念版</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <!-- 桂花雨控制 -->
+                <button id="toggle-petals" class="px-3 py-1.5 rounded-full text-xs bg-amber-50 text-amber-800 hover:bg-amber-100 transition flex items-center gap-1 border border-amber-200">
+                    <i class="fa-solid fa-wind text-amber-500"></i>
+                    <span>桂花飄落: ON</span>
+                </button>
+                <!-- 列印按鈕 -->
+                <button onclick="window.print()" class="px-4 py-1.5 rounded-full text-xs bg-osmanthus-leaf text-white hover:bg-osmanthus-leafDark transition flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-solid fa-print"></i>
+                    <span>列印單月曆</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主內容區 -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 mt-8 relative z-20">
+        
+        <div id="calendar-card" class="bg-[#FFFDF9] rounded-2xl shadow-xl border border-amber-100 overflow-hidden print-card transition-theme">
+            <div class="grid grid-cols-1 md:grid-cols-12 print-grid">
+                
+                <!-- 左側：背景照片視覺與歲時資訊面板 (佔 4 欄) -->
+                <div id="left-sidebar" class="md:col-span-4 p-6 sm:p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-amber-100 relative overflow-hidden transition-theme print-sidebar text-white shadow-inner" 
+                     style="background-image: linear-gradient(rgba(20, 15, 5, 0.75), rgba(40, 30, 10, 0.85)), url('image_cf9e93.jpg'); background-size: cover; background-position: center;">
+                    
+                    <div>
+                        <!-- 月份大標題 -->
+                        <div class="mb-5 relative">
+                            <span id="lunar-month-badge" class="absolute right-0 top-0 bg-amber-600 text-white text-xs px-2.5 py-1 rounded-full tracking-widest font-bold shadow-sm">
+                                農曆八月 · 桂月
+                            </span>
+                            <div class="text-7xl font-serif font-bold text-amber-400">09</div>
+                            <div class="text-xs tracking-widest uppercase text-amber-200/60 font-serif font-bold mt-1">September</div>
+                            <div class="text-xs text-amber-200/80 font-serif mt-1">2026 丙午年 · 丁酉月</div>
+                        </div>
+
+                        <!-- 九月歲時佳節 -->
+                        <div class="my-5 bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 shadow-inner">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-base text-amber-300">📅</span>
+                                <h4 class="font-bold text-sm text-amber-200">九月歲時佳節</h4>
+                            </div>
+                            <ul class="text-xs text-amber-100/90 space-y-2.5">
+                                <li class="flex justify-between items-center border-b border-white/10 pb-1.5">
+                                    <span class="font-medium text-white">9月7日 (一)</span>
+                                    <span class="text-amber-300 bg-amber-500/20 px-1.5 py-0.5 rounded text-[10px]">白露 (節氣)</span>
+                                </li>
+                                <li class="flex justify-between items-center border-b border-white/10 pb-1.5">
+                                    <span class="font-medium text-white">9月23日 (三)</span>
+                                    <span class="text-amber-300 bg-amber-500/20 px-1.5 py-0.5 rounded text-[10px]">秋分 (節氣)</span>
+                                </li>
+                                <li class="flex justify-between items-center border-b border-white/10 pb-1.5">
+                                    <span class="font-medium text-white">9月25日 (五)</span>
+                                    <span class="text-red-300 bg-red-500/20 px-1.5 py-0.5 rounded text-[10px] font-bold">中秋節 (法定假日)</span>
+                                </li>
+                                <li class="flex justify-between items-center pb-0.5">
+                                    <span class="font-medium text-white">9月28日 (一)</span>
+                                    <span class="text-red-300 bg-red-500/20 px-1.5 py-0.5 rounded text-[10px] font-bold">教師節 (法定假日)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- QR Code 連結分享區 -->
+                    <div class="my-4 bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 shadow-inner flex flex-col items-center">
+                        <div class="w-full flex items-center gap-2 mb-3">
+                            <span class="text-base text-amber-300">🔗</span>
+                            <h4 class="font-bold text-sm text-amber-200">自訂 QR Code 連結</h4>
+                        </div>
+                        <div class="bg-white p-1.5 rounded-lg shadow-md inline-block mb-3 transition hover:scale-105 duration-300">
+                            <!-- 預設生成一個乾淨可用的 QR Code -->
+                            <img id="qr-code-img" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.travel.taipei/" alt="QR Code" class="w-24 h-24">
+                        </div>
+                        <input type="text" id="qr-input" value="https://www.travel.taipei/" class="w-full text-xs bg-black/40 text-amber-100 placeholder-amber-200/50 rounded px-2.5 py-1.5 border border-white/10 focus:outline-none focus:border-amber-400 font-sans" placeholder="請輸入網址以生成 QR Code" oninput="updateQrCode(this.value)">
+                        <p class="text-[9px] text-amber-200/60 mt-1.5 text-center">可輸入您的活動、名片或社群網站以列印分享</p>
+                    </div>
+
+                    <!-- 頁底小標誌 -->
+                    <div class="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-[10px] text-amber-200/40">
+                        <span>金秋桂雨 · 2026 紀念版</span>
+                        <span>© 2026 Calendar Project</span>
+                    </div>
+
+                </div>
+
+                <!-- 右側：日曆網格 (佔 8 欄) -->
+                <div class="md:col-span-8 p-6 sm:p-8 print-calendar">
+                    
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-serif font-bold text-osmanthus-leafDark">二零二六年九月</h2>
+                        <span class="text-xs bg-amber-50 border border-amber-200 text-amber-800 px-2.5 py-1 rounded-md">
+                            仲秋之月 · 白露 ｜ 秋分
+                        </span>
+                    </div>
+
+                    <!-- 星期表頭 -->
+                    <div class="grid grid-cols-7 gap-2 mb-4 text-center text-xs font-bold tracking-wider text-amber-900/60">
+                        <div class="text-red-500 py-1">日</div>
+                        <div class="py-1">一</div>
+                        <div class="py-1">二</div>
+                        <div class="py-1">三</div>
+                        <div class="py-1">四</div>
+                        <div class="py-1">五</div>
+                        <div class="text-red-500 py-1">六</div>
+                    </div>
+
+                    <!-- 日期網格 (透過 JS 動態渲染) -->
+                    <div id="calendar-grid" class="grid grid-cols-7 gap-2 sm:gap-3 min-h-[380px]">
+                        <!-- JS 插入位置 -->
+                    </div>
+
+                    <!-- 底部提示 -->
+                    <div class="mt-6 flex justify-between items-center text-xs text-amber-800/60 no-print">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-amber-100 inline-block border border-amber-300"></span>
+                            <span>點擊日期可記錄每日生活點滴</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-moon text-amber-500 animate-pulse"></i>
+                            <span>教師中秋連假 (9/25-9/28) 🥮</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- 記事編輯彈窗 Modal -->
+    <div id="note-modal" class="fixed inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center hidden z-50 no-print">
+        <div class="bg-white rounded-2xl shadow-2xl p-6 max-w-md w-full mx-4 border border-amber-100 transform scale-95 transition-transform duration-300">
+            <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">✍️</span>
+                    <h3 class="text-lg font-bold text-osmanthus-leafDark" id="modal-date-title">編輯記事</h3>
+                </div>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <p class="text-xs text-amber-800/70 mb-4" id="modal-lunar-info">農曆：八月十五</p>
+
+            <textarea id="modal-textarea" rows="4" class="w-full p-3 border border-amber-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 text-sm outline-none resize-none transition" placeholder="寫下這天的重要安排或生活記事..."></textarea>
+
+            <div class="flex justify-end gap-2 mt-4">
+                <button onclick="deleteNote()" id="btn-delete-note" class="px-3 py-2 text-xs text-red-600 hover:bg-red-50 rounded-xl transition hidden">
+                    刪除記錄
+                </button>
+                <button onclick="closeModal()" class="px-4 py-2 text-xs text-gray-500 hover:bg-gray-100 rounded-xl transition">
+                    取消
+                </button>
+                <button onclick="saveNote()" class="px-5 py-2 text-xs bg-amber-600 text-white hover:bg-amber-700 rounded-xl shadow-md transition">
+                    儲存記事
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript 邏輯 -->
+    <script>
+        // 1. 初始化資料與狀態 (鎖定 2026 年 9 月)
+        const currentYear = 2026;
+        const currentMonth = 8; // 代表 9 月 (JS 月份從 0 開始)
+        let enablePetals = true;
+        let selectedDateKey = ''; // 用於記錄當前編輯記事的日期的 key (e.g. '2026-9-25')
+        let showDeleteConfirm = false; // 用於取代原生的 confirm() 彈窗
+
+        // 2026年 9月 (農曆八月) 關鍵農曆日期映射
+        const lunarDates2026 = {
+            1: "七月二十", 2: "廿一", 3: "廿二", 4: "廿三", 5: "廿四", 6: "廿五", 7: "白露", 8: "廿七", 9: "廿八", 10: "廿九",
+            11: "八月初一", 12: "初二", 13: "初三", 14: "初四", 15: "初五", 16: "初六", 17: "初七", 18: "初八", 19: "初九", 20: "初十",
+            21: "十一", 22: "十二", 23: "秋分", 24: "十四", 25: "中秋節", 26: "十六", 27: "十七", 28: "教師節", 29: "十九", 30: "二十"
+        };
+
+        // QR Code 更新邏輯
+        function updateQrCode(url) {
+            const qrImg = document.getElementById('qr-code-img');
+            if (url.trim() === "") {
+                qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com`;
+            } else {
+                qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(url)}`;
+            }
+        }
+
+        // 2. 畫布桂花雨特效
+        const canvas = document.getElementById('petal-canvas');
+        const ctx = canvas.getContext('2d');
+        let petals = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Petal {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * -canvas.height;
+                this.size = Math.random() * 4 + 2.5; // 桂花花瓣細小
+                this.speedY = Math.random() * 1.2 + 0.6;
+                this.speedX = Math.random() * 0.8 - 0.4;
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotationSpeed = Math.random() * 0.02 - 0.01;
+                this.opacity = Math.random() * 0.6 + 0.4;
+            }
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX;
+                this.rotation += this.rotationSpeed;
+                if (this.y > canvas.height) {
+                    this.y = -20;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                ctx.globalAlpha = this.opacity;
+                
+                // 畫一朵十字形四瓣桂花
+                ctx.fillStyle = '#D4AF37'; // 暖黃桂花色
+                ctx.beginPath();
+                for(let i = 0; i < 4; i++) {
+                    ctx.rotate(Math.PI / 2);
+                    ctx.ellipse(0, this.size, this.size/2.2, this.size, 0, 0, Math.PI * 2);
+                }
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function initPetals() {
+            petals = [];
+            for (let i = 0; i < 40; i++) {
+                petals.push(new Petal());
+            }
+        }
+        initPetals();
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            if (enablePetals) {
+                petals.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // 飄落按鈕開關
+        const togglePetalsBtn = document.getElementById('toggle-petals');
+        togglePetalsBtn.addEventListener('click', () => {
+            enablePetals = !enablePetals;
+            if (enablePetals) {
+                togglePetalsBtn.innerHTML = `<i class="fa-solid fa-wind text-amber-500"></i><span>桂花飄落: ON</span>`;
+            } else {
+                togglePetalsBtn.innerHTML = `<i class="fa-solid fa-wind text-gray-400"></i><span>桂花飄落: OFF</span>`;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        });
+
+        // 3. 日曆核心渲染邏輯 (專屬九月)
+        function renderCalendar() {
+            const grid = document.getElementById('calendar-grid');
+            grid.innerHTML = '';
+
+            const firstDayIndex = new Date(currentYear, currentMonth, 1).getDay(); // 第一天是星期幾
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate(); // 當月總天數
+
+            // 渲染前一個月的空白格
+            for (let i = 0; i < firstDayIndex; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.className = "bg-amber-50/10 rounded-xl border border-dashed border-amber-100/30 opacity-40 min-h-[65px] sm:min-h-[85px]";
+                grid.appendChild(emptyCell);
+            }
+
+            // 渲染 9 月的 30 天
+            for (let day = 1; day <= daysInMonth; day++) {
+                const cell = document.createElement('div');
+                const dateKey = `${currentYear}-${currentMonth + 1}-${day}`;
+                const hasNote = localStorage.getItem(dateKey);
+
+                // 基本格子樣式
+                let cellClass = "bg-white p-2 rounded-xl border border-amber-100/80 hover:border-amber-400 transition cursor-pointer flex flex-col justify-between min-h-[65px] sm:min-h-[85px] relative group hover:shadow-md";
+                
+                // 週六日與節日區分
+                const dayOfWeek = (firstDayIndex + day - 1) % 7;
+                const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+                let dayNumClass = "font-serif text-sm sm:text-lg font-bold ";
+                
+                if (isWeekend) {
+                    dayNumClass += "text-red-500";
+                    cellClass += " bg-red-50/20";
+                } else {
+                    dayNumClass += "text-osmanthus-charcoal";
+                }
+
+                // 2026年 9月份重要國定假日與連假判定
+                const isMidAutumn = (day === 25);
+                const isTeacherDay = (day === 28);
+                const isBailu = (day === 7);
+                const isQiufen = (day === 23);
+                const isHolidayBridge = (day === 26 || day === 27); // 中秋與教師節四連假的週末
+
+                cell.className = cellClass;
+                cell.onclick = () => openModal(dateKey, day);
+
+                // 計算農曆與節日內容
+                const lunarText = lunarDates2026[day] || "";
+
+                // 格子狀態與標籤渲染
+                let badgeHtml = "";
+                let specialBgClass = "";
+
+                if (isMidAutumn) {
+                    cell.className += " border-2 border-red-400 bg-red-50/70 ring-2 ring-red-200 ring-offset-1";
+                    badgeHtml = `<span class="absolute top-1 right-1 bg-red-500 text-white text-[8px] sm:text-[9px] px-1 py-0.5 rounded-md flex items-center gap-0.5 font-sans font-bold"><i class="fa-solid fa-moon animate-bounce"></i>中秋節</span>`;
+                } else if (isTeacherDay) {
+                    cell.className += " border-2 border-red-400 bg-red-50/70 ring-2 ring-red-200 ring-offset-1";
+                    badgeHtml = `<span class="absolute top-1 right-1 bg-red-500 text-white text-[8px] sm:text-[9px] px-1 py-0.5 rounded-md flex items-center gap-0.5 font-sans font-bold"><i class="fa-solid fa-graduation-cap"></i>教師節</span>`;
+                } else if (isBailu) {
+                    cell.className += " border border-amber-300 bg-amber-50/30";
+                    badgeHtml = `<span class="absolute top-1 right-1 bg-amber-600 text-white text-[8px] sm:text-[9px] px-1.5 py-0.5 rounded-md font-sans">白露</span>`;
+                } else if (isQiufen) {
+                    cell.className += " border border-amber-300 bg-amber-50/30";
+                    badgeHtml = `<span class="absolute top-1 right-1 bg-amber-600 text-white text-[8px] sm:text-[9px] px-1.5 py-0.5 rounded-md font-sans">秋分</span>`;
+                } else if (isHolidayBridge) {
+                    cell.className += " bg-red-50/40 border border-red-100";
+                    badgeHtml = `<span class="absolute top-1 right-1 bg-red-400/20 text-red-600 text-[8px] sm:text-[9px] px-1.5 py-0.5 rounded font-bold font-sans">連假</span>`;
+                } else if (hasNote) {
+                    badgeHtml = `<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-amber-500"></span>`;
+                }
+
+                cell.innerHTML = `
+                    <div class="flex justify-between items-start w-full">
+                        <span class="${dayNumClass}">${day}</span>
+                        <span class="text-[9px] text-amber-900/40 select-none">${lunarText}</span>
+                    </div>
+                    ${badgeHtml}
+                    <!-- 記事預覽 -->
+                    <div class="text-[9px] sm:text-xs text-amber-900/80 truncate w-full mt-1 font-sans ${hasNote ? 'bg-amber-100/50 px-1 py-0.5 rounded' : ''}">
+                        ${hasNote ? hasNote : ''}
+                    </div>
+                `;
+
+                grid.appendChild(cell);
+            }
+        }
+
+        // 4. 記事彈窗與非原生確認框邏輯
+        const modal = document.getElementById('note-modal');
+        const modalTitle = document.getElementById('modal-date-title');
+        const modalLunarInfo = document.getElementById('modal-lunar-info');
+        const modalTextarea = document.getElementById('modal-textarea');
+        const btnDelete = document.getElementById('btn-delete-note');
+
+        function openModal(dateKey, day) {
+            selectedDateKey = dateKey;
+            modalTitle.innerText = `${currentYear} 年 9 月 ${day} 日 記事`;
+            
+            // 點擊新格子時重設刪除按鈕狀態，避免 confirm
+            showDeleteConfirm = false;
+            btnDelete.innerText = "刪除記錄";
+            btnDelete.className = "px-3 py-2 text-xs text-red-600 hover:bg-red-50 rounded-xl transition";
+
+            const lunar = `農曆：${lunarDates2026[day] || '無資料'}`;
+            modalLunarInfo.innerText = lunar;
+
+            const savedNote = localStorage.getItem(dateKey) || '';
+            modalTextarea.value = savedNote;
+
+            if (savedNote) {
+                btnDelete.classList.remove('hidden');
+            } else {
+                btnDelete.classList.add('hidden');
+            }
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.firstElementChild.classList.remove('scale-95');
+                modal.firstElementChild.classList.add('scale-100');
+            }, 50);
+        }
+
+        function closeModal() {
+            modal.firstElementChild.classList.remove('scale-100');
+            modal.firstElementChild.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 150);
+        }
+
+        function saveNote() {
+            const content = modalTextarea.value.trim();
+            if (content) {
+                localStorage.setItem(selectedDateKey, content);
+            } else {
+                localStorage.removeItem(selectedDateKey);
+            }
+            closeModal();
+            renderCalendar();
+        }
+
+        // 避免使用原生 confirm()，改用雙擊按鈕邏輯
+        function deleteNote() {
+            if (!showDeleteConfirm) {
+                showDeleteConfirm = true;
+                btnDelete.innerText = "確認刪除此記事？";
+                btnDelete.className = "px-3 py-2 text-xs bg-red-600 text-white hover:bg-red-700 rounded-xl transition font-bold";
+            } else {
+                localStorage.removeItem(selectedDateKey);
+                showDeleteConfirm = false;
+                closeModal();
+                renderCalendar();
+            }
+        }
+
+        // 頁面初始化
+        window.onload = () => {
+            renderCalendar();
+        };
+    </script>
+</body>
+</html>
