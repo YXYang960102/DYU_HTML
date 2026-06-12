@@ -5,18 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>九里飄香 - 桂花綜合學術與生活應用專題網</title>
     
-    <!-- 引入 Tailwind CSS 進行精美排版與響應式設計 -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- 引入 Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
     
-    <!-- 引入 Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- 網站圖示 -->
     <script>
         tailwind.config = {
             theme: {
@@ -52,11 +48,9 @@
 </head>
 <body class="bg-stone-50 text-stone-800 font-sans antialiased text-base selection:bg-gold-200 selection:text-gold-950">
 
-    <!-- 頂部導覽列 -->
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200/80 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- 標誌 -->
                 <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo(0,0)">
                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-gold-500 to-amber-400 flex items-center justify-center text-white shadow-md">
                         <i data-lucide="flower" class="w-6 h-6"></i>
@@ -67,7 +61,6 @@
                     </div>
                 </div>
 
-                <!-- 桌面端選單 -->
                 <nav class="hidden lg:flex space-x-2">
                     <a href="#varieties" class="px-4 py-2 rounded-full text-base font-medium text-stone-600 hover:text-gold-700 hover:bg-gold-50 transition">四大名桂</a>
                     <a href="#cultivation" class="px-4 py-2 rounded-full text-base font-medium text-stone-600 hover:text-gold-700 hover:bg-gold-50 transition">栽培指南</a>
@@ -76,7 +69,6 @@
                     <a href="#faq" class="px-4 py-2 rounded-full text-base font-medium text-stone-600 hover:text-gold-700 hover:bg-gold-50 transition">常見問答</a>
                 </nav>
 
-                <!-- 行動端選單按鈕 -->
                 <div class="lg:hidden">
                     <button id="mobile-menu-btn" class="p-2 rounded-lg text-stone-600 hover:bg-stone-100 focus:outline-none">
                         <i data-lucide="menu" id="menu-icon" class="w-7 h-7"></i>
@@ -85,7 +77,6 @@
             </div>
         </div>
 
-        <!-- 行動端選單內容 -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-stone-200 px-4 pt-2 pb-4 space-y-2 shadow-lg absolute w-full">
             <a href="#varieties" class="mobile-nav-link block px-4 py-3 rounded-lg text-stone-700 hover:bg-gold-50 hover:text-gold-700 transition text-lg font-medium">四大名桂</a>
             <a href="#cultivation" class="mobile-nav-link block px-4 py-3 rounded-lg text-stone-700 hover:bg-gold-50 hover:text-gold-700 transition text-lg font-medium">栽培指南</a>
@@ -95,7 +86,6 @@
         </div>
     </header>
 
-    <!-- 全域通知組件 -->
     <div id="toast" class="fixed top-24 right-4 z-[100] transform translate-x-full opacity-0 transition-all duration-300 pointer-events-none">
         <div class="bg-forest-900 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4 border border-forest-700/50">
             <div class="p-1.5 bg-gold-500 rounded-full text-forest-950">
@@ -107,9 +97,7 @@
         </div>
     </div>
 
-    <!-- 首頁 Hero Section -->
     <section id="home" class="relative overflow-hidden bg-stone-900 pt-16 pb-24 md:py-32 lg:py-40">
-        <!-- 滿版背景圖 -->
         <div class="absolute inset-0 z-0">
             <img src="https://img.win3000.com/m00/88/15/db5995e40460cbfe4c7d8ee2d392f150.jpg" alt="桂花背景" class="w-full h-full object-cover opacity-50 mix-blend-overlay">
             <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/70 to-transparent"></div>
@@ -136,7 +124,6 @@
         </div>
     </section>
 
-    <!-- 第一章：品種大觀園 Section -->
     <section id="varieties" class="py-24 bg-white scroll-mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
@@ -152,10 +139,9 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 
-                <!-- 金桂 (換上高質感金黃花照片) -->
                 <div class="bg-stone-50 border border-stone-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
                     <div class="aspect-[4/3] overflow-hidden relative">
-                       <img src="https://lirp.cdn-website.com/defb680d/dms3rep/multi/opt/forsythia-branch-blooms-big-56a588713df78cf77288b329-881097b1-1920w.jpg" alt="金桂" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                       <img src="https://cdn.phototourl.com/free/2026-06-12-872f3294-1b97-42d2-a11c-ac6f7d5e669d.jpg" alt="金桂" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <span class="absolute top-4 right-4 bg-amber-500 text-white font-bold text-xs px-3 py-1.5 rounded-full shadow-md">香氣巔峰</span>
                     </div>
                     <div class="p-6 md:p-8 flex-1 flex flex-col">
@@ -172,7 +158,6 @@
                     </div>
                 </div>
 
-                <!-- 銀桂 -->
                 <div class="bg-stone-50 border border-stone-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
                     <div class="aspect-[4/3] overflow-hidden relative">
                         <img src="https://thumb.photo-ac.com/88/88048538432335278f45c5aaf2e70936_t.jpeg" alt="銀桂" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -192,7 +177,6 @@
                     </div>
                 </div>
 
-                <!-- 丹桂 -->
                 <div class="bg-stone-50 border border-stone-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
                     <div class="aspect-[4/3] overflow-hidden relative">
                          <img src="https://fieldreport.caes.uga.edu/wp-content/uploads/2025/11/Osmanthus-fragrans-orange-flowers-1500x1000px.jpg" alt="丹桂" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -212,7 +196,6 @@
                     </div>
                 </div>
 
-                <!-- 四季桂 (換上真實桂花灌木照片) -->
                 <div class="bg-stone-50 border border-stone-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
                     <div class="aspect-[4/3] overflow-hidden relative">
                         <img src="https://www.nkfa.org.tw/upload/images/390367_264880416906038_1538960126_n.jpg" alt="四季桂" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -236,7 +219,58 @@
         </div>
     </section>
 
-    <!-- 栽培教學 Section (加入右側照片) -->
+    <section id="changhua" class="py-24 bg-stone-100 scroll-mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-forest-600 text-xs font-bold uppercase tracking-widest block">第二章</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+                    彰化在地連結：走訪花鄉
+                </h2>
+                <div class="w-12 h-1 bg-forest-500 mx-auto rounded-full"></div>
+                <p class="text-stone-600">
+                    結合彰化在地人文與產業，探索鹿港藝術村的文化底蘊與田尾公路花園的園藝實力。
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-stone-200 flex flex-col md:flex-row group">
+                    <div class="md:w-1/2 h-64 md:h-auto overflow-hidden">
+                        <img src="https://tourism.chcg.gov.tw/upload/92/2024123013194289260.jpg" alt="鹿港桂花巷藝術村" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    </div>
+                    <div class="p-8 md:w-1/2 flex flex-col justify-center">
+                        <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-stone-900 mb-3">鹿港桂花巷藝術村</h3>
+                        <p class="text-sm text-stone-600 leading-relaxed mb-4">
+                            清治時期貿易河道旁遍植桂花，故得美名。雖然古樹多已不存，但日式宿舍群現轉型為藝術基地。
+                        </p>
+                        <ul class="text-xs text-stone-500 space-y-2 font-medium">
+                            <li><span class="text-blue-600 font-bold mr-1">✓</span> 藝術進駐：結合傳統工藝與現代創意。</li>
+                            <li><span class="text-blue-600 font-bold mr-1">✓</span> 文化地標：昭和氣息濃厚的打卡聖地。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-stone-200 flex flex-col md:flex-row-reverse group">
+                    <div class="md:w-1/2 h-64 md:h-auto overflow-hidden">
+                        <img src="https://tourism.chcg.gov.tw/upload/92/2024091016280398982.jpg" alt="田尾公路花園" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    </div>
+                    <div class="p-8 md:w-1/2 flex flex-col justify-center">
+                        <div class="w-10 h-10 rounded-full bg-pink-50 text-pink-600 flex items-center justify-center mb-4">
+                            <i data-lucide="flower-2" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-stone-900 mb-3">田尾公路花園</h3>
+                        <h4 class="text-sm font-bold text-pink-600 mb-2">桂花的故鄉・全台最大花卉集散地</h4>
+                        <p class="text-sm text-stone-600 leading-relaxed">
+                            擁有百餘年的花卉產業歷史，90%以上的居民從事園藝相關工作。尋找專業培育的各類桂花品種，田尾位置是首選。從庭園景觀大樹到室內小盆栽，完整產業鏈滿足所有需求。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="cultivation" class="py-24 bg-stone-900 text-stone-300 scroll-mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -280,11 +314,8 @@
                     </div>
                 </div>
                 
-                
-                <!-- 右側圖片區 (補上缺少的照片) -->
                 <div class="relative h-full min-h-[500px] rounded-[3rem] shadow-2xl border-4 border-stone-800">
                     <img src="https://cdn.phototourl.com/free/2026-06-04-5b67f4db-1f4f-475b-8c0a-9cc3ab2fc90c.png" alt="桂花盆栽與園藝" class="w-full h-full object-cover">
-                    <!-- 浮動資訊卡 -->
                     <div class="absolute -bottom-15 left-8 right-8 bg-stone-900/80 backdrop-blur-md py-3 px-4 rounded-2xl border border-stone-700">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 bg-gold-500 rounded-full flex items-center justify-center text-stone-900">
@@ -301,7 +332,6 @@
         </div>
     </section>
 
-    <!-- 智慧助手 Section -->
     <section id="interactive" class="py-24 bg-stone-100 scroll-mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
@@ -313,7 +343,6 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- 病蟲害 AI 模擬辨識器 -->
                 <div class="bg-white rounded-3xl p-8 sm:p-10 border border-stone-200 shadow-xl flex flex-col justify-between">
                     <div>
                         <h3 class="font-serif text-2xl font-bold text-stone-900 mb-3 flex items-center gap-3">
@@ -334,7 +363,6 @@
                                 </select>
                             </div>
 
-                            <!-- 診斷結果區 (動態呈現) -->
                             <div id="diagnose-result" class="hidden bg-stone-50 border-2 border-dashed border-stone-300 p-8 rounded-3xl space-y-4">
                                 <div class="flex items-center justify-between border-b border-stone-200 pb-4">
                                     <span class="text-sm font-bold text-amber-800 bg-amber-100 px-3 py-1 rounded-full" id="diag-tag">分類標籤</span>
@@ -349,14 +377,12 @@
                             </div>
                         </div>
                     </div>
-                    <!---->
                     <div class="mt-8 pt-6 border-t border-stone-100 flex items-center justify-between text-sm text-stone-400">
                         <span class="flex items-center gap-2"><i data-lucide="shield-alert" class="w-5 h-5 text-emerald-600"></i> 符合植物防疫法規建議</span>
                         <span class="font-mono bg-stone-100 px-2 py-1 rounded">Ver 2.0</span>
                     </div>
                 </div>
 
-                <!-- 栽培日誌模組 -->
                 <div class="bg-white rounded-3xl p-8 sm:p-10 border border-stone-200 shadow-xl flex flex-col justify-between">
                     <div>
                         <h3 class="font-serif text-2xl font-bold text-stone-900 mb-3 flex items-center gap-3">
@@ -364,7 +390,6 @@
                         </h3>
                         <p class="text-base text-stone-500 mb-8 leading-relaxed">點滴記錄您與桂花的成長。日誌將安全儲存於您當前的瀏覽器中：</p>
 
-                        <!-- 日誌表單 -->
                         <form id="journal-form" onsubmit="saveJournalEntry(event)" class="space-y-5">
                             <div class="grid grid-cols-2 gap-5">
                                 <div>
@@ -390,14 +415,12 @@
                             </button>
                         </form>
 
-                        <!-- 日誌列表 -->
                         <div class="mt-10 border-t border-stone-100 pt-6">
                             <div class="flex justify-between items-center mb-4">
                                 <h4 class="text-sm font-bold text-stone-800 bg-stone-100 px-3 py-1 rounded-lg">最新日記列表 (最多顯示 2 筆)</h4>
                                 <button onclick="clearJournal()" class="text-xs font-bold text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg transition border border-red-200">清除全部</button>
                             </div>
                             <div id="journal-list" class="space-y-3 max-h-48 overflow-y-auto pr-2 no-scrollbar">
-                                <!-- JS 動態填入 -->
                                 <p class="text-base text-stone-400 text-center py-6 bg-stone-50 rounded-xl border border-dashed border-stone-200">目前尚無日記紀錄，寫下您的第一篇吧！</p>
                             </div>
                         </div>
@@ -407,7 +430,6 @@
         </div>
     </section>
 
-    <!-- 產品 DIY 教學 Section -->
     <section id="diy" class="py-24 bg-white scroll-mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4">
@@ -422,7 +444,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
-                <!-- DIY 桂花茶 -->
                 <div class="bg-stone-50 border border-stone-200 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-500 flex flex-col group">
                     <div class="aspect-[16/11] overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1558160074-4d7d8bdf4256?auto=format&fit=crop&w=600&q=80" alt="桂花茶" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
@@ -437,7 +458,6 @@
                             詳細工法 <i data-lucide="chevron-down" id="icon-tea" class="w-5 h-5 transition-transform duration-300"></i>
                         </button>
                         
-                        <!-- 詳細內容展開區 -->
                         <div id="diy-tea" class="diy-content hidden mt-4 pt-4 border-t border-stone-200 text-sm text-stone-600 space-y-2.5 leading-relaxed bg-white p-4 rounded-xl shadow-inner">
                             <p><span class="font-bold text-gold-600">1.</span> 將新鮮桂花挑除雜質並輕柔洗淨。</p>
                             <p><span class="font-bold text-gold-600">2.</span> 陰乾或低溫烘乾至含水率約 5-10% (避免鮮花苦澀)。</p>
@@ -447,7 +467,6 @@
                     </div>
                 </div>
 
-                <!-- DIY 桂花蜜餞 (換成蜂蜜罐) -->
                 <div class="bg-stone-50 border border-stone-200 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-500 flex flex-col group">
                     <div class="aspect-[16/11] overflow-hidden relative">
                         <img src="https://image-cdn-flare.qdm.cloud/q59631db779a01/image/data/2020/08/10/ea8a40cfcaed02de2e843965ec69566a.jpg" alt="桂花蜜" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
@@ -471,7 +490,6 @@
                     </div>
                 </div>
 
-                <!-- DIY 桂花酒 -->
                 <div class="bg-stone-50 border border-stone-200 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-500 flex flex-col group">
                     <div class="aspect-[16/11] overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=600&q=80" alt="桂花酒" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
@@ -495,7 +513,6 @@
                     </div>
                 </div>
 
-                <!-- DIY 桂花精油 -->
                 <div class="bg-stone-50 border border-stone-200 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-500 flex flex-col group">
                     <div class="aspect-[16/11] overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80" alt="桂花精油" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
@@ -523,7 +540,6 @@
         </div>
     </section>
 
-    <!-- 文化意象 Section -->
     <section id="culture" class="py-24 bg-forest-950 text-white scroll-mt-12 overflow-hidden relative border-t border-stone-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -568,7 +584,6 @@
         </div>
     </section>
 
-    <!-- FAQ 常見問答 Section (修復點擊邏輯) -->
     <section id="faq" class="py-24 bg-stone-100 scroll-mt-20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -578,7 +593,6 @@
             </div>
 
             <div class="space-y-6">
-                <!-- FAQ 1 -->
                 <div class="bg-white border border-stone-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition">
                     <button onclick="toggleFaq('faq-1', 'icon-1')" class="w-full px-8 py-6 text-left font-bold text-stone-800 text-lg flex justify-between items-center focus:outline-none bg-white hover:bg-stone-50">
                         <span>桂花不開花或香氣很淡怎麼辦？</span>
@@ -591,7 +605,6 @@
                     </div>
                 </div>
                 
-                <!-- FAQ 2 -->
                 <div class="bg-white border border-stone-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition">
                     <button onclick="toggleFaq('faq-2', 'icon-2')" class="w-full px-8 py-6 text-left font-bold text-stone-800 text-lg flex justify-between items-center focus:outline-none bg-white hover:bg-stone-50">
                         <span>種在盆栽裡要注意什麼？</span>
@@ -604,7 +617,6 @@
                     </div>
                 </div>
                 
-                <!-- FAQ 3 -->
                 <div class="bg-white border border-stone-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition">
                     <button onclick="toggleFaq('faq-3', 'icon-3')" class="w-full px-8 py-6 text-left font-bold text-stone-800 text-lg flex justify-between items-center focus:outline-none bg-white hover:bg-stone-50">
                         <span>製作桂花茶可以直接用剛摘下來的花嗎？</span>
@@ -620,7 +632,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-stone-900 text-stone-400 py-16 border-t border-stone-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-10 pb-12 border-b border-stone-800">
@@ -654,9 +665,8 @@
         </div>
     </footer>
 
-    <!-- JavaScript 邏輯 -->
     <script>
-        // 初始化 Lucide 圖標
+        // 初始化 Lucide 圖擺
         lucide.createIcons();
 
         // 1. 行動端導覽列切換
