@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+TC:wght@300;400;500;700&family=Alex+Brush&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
     
@@ -18,6 +18,7 @@
                     fontFamily: {
                         serif: ['Noto Serif TC', 'Playfair Display', 'serif'],
                         sans: ['Noto Sans TC', 'sans-serif'],
+                        handwriting: ['Alex Brush', 'cursive'],
                     },
                     colors: {
                         osmanthus: {
@@ -37,7 +38,7 @@
         }
     </script>
     <style>
-        /* 沉浸式全局桂花背景：融合高質感半透遮罩，呈現和紙浮水印意境 */
+        /* 沉浸式全局桂花背景 */
         body {
             font-family: 'Noto Serif TC', serif;
             background-color: #FAF6F0;
@@ -67,9 +68,8 @@
             background: radial-gradient(circle at 85% 15%, rgba(253, 224, 71, 0.25) 0%, transparent 60%);
         }
 
-        /* 專注/海報模式下的隱藏與背景深化樣式 */
+        /* 專注/海報模式樣式 */
         .focus-mode {
-            /* 進入專注海報模式時，降低遮罩濃度，使背景桂花大圖更為清晰顯著 */
             background-image: linear-gradient(rgba(251, 249, 244, 0.82), rgba(251, 249, 244, 0.82)), url('image_cf9e93.jpg') !important;
         }
 
@@ -81,12 +81,25 @@
             margin: 0 !important;
             overflow: hidden !important;
             border: none !important;
-        }
+            }
         
         .focus-mode .main-card {
             box-shadow: 0 30px 60px -15px rgba(45, 30, 10, 0.25) !important;
             border-color: rgba(212, 175, 55, 0.25) !important;
             background-color: rgba(255, 253, 249, 0.90) !important;
+        }
+
+        /* 復古斑駁印章效果 */
+        .vintage-stamp {
+            position: relative;
+            color: #C0392B;
+            border: 2px dashed #C0392B;
+            border-radius: 50%;
+            padding: 6px;
+            opacity: 0.75;
+            transform: rotate(-8deg);
+            background: radial-gradient(circle, transparent 20%, rgba(255,253,249,0.2) 100%);
+            box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.1);
         }
 
         /* 列印樣式優化 */
@@ -123,7 +136,6 @@
                 grid-column: span 8 / span 8 !important;
                 padding-left: 2rem !important;
             }
-            /* 列印時強制顯示背景圖 */
             * {
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
@@ -172,7 +184,7 @@
             <div class="grid grid-cols-1 md:grid-cols-12 print-grid">
                 
                 <div id="left-sidebar" class="md:col-span-4 p-6 sm:p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-amber-100/60 relative overflow-hidden transition-theme print-sidebar text-white shadow-inner min-h-[500px]" 
-                     style="background-image: linear-gradient(rgba(20, 15, 8, 0.75), rgba(45, 30, 12, 0.88)), url('https://cdn.phototourl.com/free/2026-06-09-1922a857-ff83-45a2-8514-d73ebd2a41df.png'); background-size: cover; background-position: center;">
+                     style="background-image: linear-gradient(rgba(20, 15, 8, 0.35), rgba(45, 30, 12, 0.55)), url('https://cdn.phototourl.com/free/2026-06-09-1922a857-ff83-45a2-8514-d73ebd2a41df.png'); background-size: cover; background-position: center;">
                     
                     <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-amber-400/30 m-4 pointer-events-none"></div>
                     <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-amber-400/30 m-4 pointer-events-none"></div>
@@ -195,11 +207,11 @@
                             <ul class="text-xs text-amber-100/90 space-y-3 font-sans">
                                 <li class="flex justify-between items-center">
                                     <span class="font-medium text-white">9月7日 (一)</span>
-                                    <span class="text-amber-300 bg-amber-500/20 px-2 py-0.5 rounded text-[10px] border border-amber-500/30">白露 (節氣)</span>
+                                    <span class="text-amber-300 bg-amber-50/20 px-2 py-0.5 rounded text-[10px] border border-amber-500/30">白露 (節氣)</span>
                                 </li>
                                 <li class="flex justify-between items-center">
                                     <span class="font-medium text-white">9月23日 (三)</span>
-                                    <span class="text-amber-300 bg-amber-500/20 px-2 py-0.5 rounded text-[10px] border border-amber-500/30">秋分 (節氣)</span>
+                                    <span class="text-amber-300 bg-amber-50/20 px-2 py-0.5 rounded text-[10px] border border-amber-500/30">秋分 (節氣)</span>
                                 </li>
                                 <li class="flex justify-between items-center">
                                     <span class="font-medium text-white">9月25日 (五)</span>
@@ -258,7 +270,8 @@
 
                 </div>
 
-                <div class="md:col-span-8 p-6 sm:p-8 print-calendar flex flex-col justify-between">
+                <div class="md:col-span-8 p-6 sm:p-8 print-calendar flex flex-col justify-between relative"
+                     style="background-image: linear-gradient(rgba(255, 253, 249, 0.65), rgba(255, 253, 249, 0.65)), url('https://cdn.phototourl.com/free/2026-06-13-67dd24a8-2234-4363-b422-a63e52f110a6.jpg'); background-size: cover; background-position: center;">
                     
                     <div>
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-6 border-b border-amber-100/40 pb-4">
@@ -284,15 +297,37 @@
                             <div class="text-red-500 py-1.5 bg-red-50/30 rounded-md">六</div>
                         </div>
 
-                        <div id="calendar-grid" class="grid grid-cols-7 gap-2 sm:gap-3 min-h-[380px] font-sans">
+                        <div id="calendar-grid" class="grid grid-cols-7 gap-2 sm:gap-3 min-h-[380px] font-sans relative z-10">
                             </div>
                     </div>
 
-                    <div class="mt-8 pt-4 border-t border-amber-100/40 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs text-amber-800/60 no-print font-sans">
-                        <div class="flex items-center gap-2">
-                            <span class="w-2.5 h-2.5 rounded-full bg-amber-200 inline-block border border-amber-400 animate-ping"></span>
-                            <span>點擊月曆任意日期，即可添加專屬生活記事</span>
+                    <div class="mt-8 pt-4 border-t border-amber-100/40 flex flex-col sm:flex-row justify-between items-end gap-4 relative">
+                        
+                        <div class="text-xs text-amber-800/60 no-print font-sans self-center">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-200 inline-block border border-amber-400 animate-ping"></span>
+                                <span>點擊月曆任意日期，即可添加專屬生活記事</span>
+                            </div>
                         </div>
+
+                        <div class="flex items-center gap-4 select-none mt-2 sm:mt-0 pr-2">
+                            <div class="text-right font-serif text-[11px] tracking-widest text-amber-900/50 leading-relaxed italic border-r border-amber-200/50 pr-3 hidden sm:block">
+                                <p>桂子月中落</p>
+                                <p>天香雲外飄</p>
+                            </div>
+                            
+                            <div class="flex items-center gap-1.5 relative">
+                                <div class="vintage-stamp flex flex-col items-center justify-center w-11 h-11 border-red-700 text-red-700">
+                                    <span class="text-[7px] font-bold tracking-tight leading-none">丙午</span>
+                                    <span class="text-[9px] font-black my-0.5 leading-none font-serif">歲時</span>
+                                    <span class="text-[6px] font-medium leading-none">金秋</span>
+                                </div>
+                                <div class="text-amber-500/60 text-lg transform rotate-12 absolute -top-4 -right-1">
+                                    <i class="fa-solid fa-leaf text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
@@ -357,22 +392,20 @@
     </div>
 
     <script>
-        // 1. 初始化資料與狀態 (鎖定 2026 年 9 月)
         const currentYear = 2026;
-        const currentMonth = 8; // JS 中 8 代表 9 月
+        const currentMonth = 8; 
         let enablePetals = true;
         let isFocusMode = false;
         let selectedDateKey = ''; 
-        let showDeleteConfirm = false; // 取代原生的 confirm() 彈窗
+        let showDeleteConfirm = false;
 
-        // 2026年 9月 (農曆八月) 關鍵農曆日期映射
         const lunarDates2026 = {
-            1: "七月二十", 2: "廿一", 3: "廿二", 4: "廿三", 5: "廿四", 6: "廿五", 7: "白露", 8: "廿七", 9: "廿八", 10: "廿九",
+            1: "七月二十", 2: "廿一", 3: "廿2", 4: "廿三", 5: "廿四", 6: "廿五", 7: "白露", 8: "廿七", 9: "廿八", 10: "廿九",
             11: "八月初一", 12: "初二", 13: "初三", 14: "初四", 15: "初五", 16: "初六", 17: "初七", 18: "初八", 19: "初九", 20: "初十",
             21: "十一", 22: "十二", 23: "秋分", 24: "十四", 25: "中秋節", 26: "十六", 27: "十七", 28: "教師節", 29: "十九", 30: "二十"
         };
 
-        // 2. 畫布桂花雨特效
+        // 畫布桂花雨特效
         const canvas = document.getElementById('petal-canvas');
         const ctx = canvas.getContext('2d');
         let petals = [];
@@ -410,7 +443,6 @@
                 ctx.rotate(this.rotation);
                 ctx.globalAlpha = this.opacity;
                 
-                // 經典十字四瓣金色桂花
                 ctx.fillStyle = '#D4AF37'; 
                 ctx.beginPath();
                 for(let i = 0; i < 4; i++) {
@@ -442,7 +474,6 @@
         }
         animate();
 
-        // 飄落控制
         const togglePetalsBtn = document.getElementById('toggle-petals');
         togglePetalsBtn.addEventListener('click', () => {
             enablePetals = !enablePetals;
@@ -454,48 +485,45 @@
             }
         });
 
-        // 3. 專注模式切換 (隱藏所有操作性元素，提供極致掛曆美感)
+        // 專注模式切換
         function toggleFocusMode() {
             isFocusMode = !isFocusMode;
             const body = document.getElementById('main-body');
             const exitBtn = document.getElementById('exit-focus-btn');
-            const focusText = document.getElementById('focus-text');
             
             if (isFocusMode) {
                 body.classList.add('focus-mode');
                 exitBtn.classList.remove('hidden');
                 exitBtn.classList.add('flex');
-                ctx.clearRect(0, 0, canvas.width, canvas.height); // 專注模式下停止 canvas 負擔
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
             } else {
                 body.classList.remove('focus-mode');
                 exitBtn.classList.add('hidden');
                 exitBtn.classList.remove('flex');
             }
-            renderCalendar(); // 重繪月曆隱藏編輯狀態
+            renderCalendar();
         }
 
-        // 4. 動態與永久本地端 QR Code 生成 (自 calender.html 引入)
+        // QR Code 生成
         function updateQrCode(url) {
             const qrImg = document.getElementById('qr-code-img');
             const displayText = document.getElementById('qr-display-text');
             const cleanUrl = url.trim() === "" ? "https://www.google.com" : url.trim();
             
-            // 建立虛擬 Canvas 進行背景運算
             const tempCanvas = document.createElement('canvas');
             const qr = new QRious({
                 element: tempCanvas,
                 value: cleanUrl,
-                size: 250,              // 產生高畫質大圖，方便縮放不失真
-                background: '#ffffff',  // 純白底
-                foreground: '#2D3130',  // 沉穩炭黑，更易掃描
-                level: 'H'              // 最高的 H 級糾錯率 (即使遮擋 30% 仍可永久讀取)
+                size: 250,
+                background: '#ffffff',
+                foreground: '#2D3130',
+                level: 'H'
             });
             
             const dataUrl = tempCanvas.toDataURL();
             qrImg.src = dataUrl;
             displayText.innerText = cleanUrl;
             
-            // 如果放大燈箱存在，同步更新高畫質大圖
             const lightboxQrImg = document.getElementById('lightbox-qr-img');
             if (lightboxQrImg) {
                 lightboxQrImg.src = dataUrl;
@@ -517,7 +545,6 @@
             document.execCommand('copy');
             document.body.removeChild(tempInput);
             
-            // 提示已複製
             const toast = document.createElement('div');
             toast.className = "fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-amber-800 text-amber-50 text-xs px-4 py-2 rounded-full shadow-lg z-50 transition-opacity duration-300 pointer-events-none";
             toast.innerText = "📋 已複製網址至剪貼簿！";
@@ -528,7 +555,7 @@
             }, 1500);
         }
 
-        // 5. 燈箱賞析控制
+        // 燈箱控制
         function openLightbox() {
             const lb = document.getElementById('lightbox-modal');
             lb.classList.remove('hidden');
@@ -541,7 +568,7 @@
             lb.classList.remove('flex');
         }
 
-        // 6. 本地記事動態同步到側邊欄清單
+        // 側邊欄記事動態同步
         function updateSidebarNotes() {
             const listContainer = document.getElementById('sidebar-notes-container');
             const list = document.getElementById('sidebar-notes-list');
@@ -549,7 +576,6 @@
             
             let noteCount = 0;
             
-            // 讀取 2026-9 月內所有的記事
             for (let day = 1; day <= 30; day++) {
                 const dateKey = `${currentYear}-${currentMonth + 1}-${day}`;
                 const note = localStorage.getItem(dateKey);
@@ -568,7 +594,6 @@
                 }
             }
 
-            // 如果有記事才秀出該區塊
             if (noteCount > 0 && !isFocusMode) {
                 listContainer.classList.remove('hidden');
             } else {
@@ -576,38 +601,33 @@
             }
         }
 
-        // 7. 日曆核心渲染邏輯 (專屬 2026 九月)
+        // 日曆核心渲染
         function renderCalendar() {
             const grid = document.getElementById('calendar-grid');
             grid.innerHTML = '';
 
-            const firstDayIndex = new Date(currentYear, currentMonth, 1).getDay(); // 第一天星期幾 (Tuesday=2)
-            const daysInMonth = 30; // 9 月有 30 天
+            const firstDayIndex = new Date(currentYear, currentMonth, 1).getDay(); 
+            const daysInMonth = 30; 
 
-            // 渲染前一個月 (8月) 的空白預覽格
             for (let i = 0; i < firstDayIndex; i++) {
                 const emptyCell = document.createElement('div');
                 emptyCell.className = "bg-amber-50/10 rounded-xl border border-dashed border-amber-100/30 opacity-40 min-h-[65px] sm:min-h-[85px] no-print";
                 grid.appendChild(emptyCell);
             }
 
-            // 渲染 9 月的 30 天
             for (let day = 1; day <= daysInMonth; day++) {
                 const cell = document.createElement('div');
                 const dateKey = `${currentYear}-${currentMonth + 1}-${day}`;
                 const hasNote = localStorage.getItem(dateKey);
 
-                // 2026 年 9 月放假狀態定義
                 const dayOfWeek = (firstDayIndex + day - 1) % 7;
-                const isWeekend = (dayOfWeek === 0 || dayOfWeek === 6); // 週六日
+                const isWeekend = (dayOfWeek === 0 || dayOfWeek === 6); 
                 const isMidAutumn = (day === 25);
                 const isTeacherDay = (day === 28);
-                const isHolidayBridge = (day === 26 || day === 27); // 連假中的週末
+                const isHolidayBridge = (day === 26 || day === 27); 
                 
-                // 是否為放假日/公休日
                 const isHoliday = isWeekend || isMidAutumn || isTeacherDay || isHolidayBridge;
 
-                // 基本格子樣式 (放假日特別採用紅字、淡紅背景、紅色框線)
                 let cellClass = "p-2 rounded-xl border transition-theme cursor-pointer flex flex-col justify-between min-h-[65px] sm:min-h-[85px] relative group hover:shadow-md";
                 let dayNumClass = "font-serif text-sm sm:text-lg font-bold ";
 
@@ -621,17 +641,13 @@
 
                 cell.className = cellClass;
                 
-                // 專注模式下不允許點擊編輯
                 if (!isFocusMode) {
                     cell.onclick = () => openModal(dateKey, day);
                 } else {
                     cell.style.cursor = 'default';
                 }
 
-                // 農曆與節慶對應
                 const lunarText = lunarDates2026[day] || "";
-
-                // 節慶與重要日子高亮標籤 (全部改為醒目的紅金色系)
                 const isBailu = (day === 7);
                 const isQiufen = (day === 23);
 
@@ -653,11 +669,9 @@
                     cell.className += " bg-red-100/30 border border-red-300";
                     badgeHtml = `<span class="absolute top-1.5 right-1.5 bg-red-500 text-white text-[8px] sm:text-[9px] px-1.5 py-0.5 rounded font-bold font-sans">連假</span>`;
                 } else if (hasNote && !isFocusMode) {
-                    // 如果不是專注模式，顯示記事圓點
                     badgeHtml = `<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-amber-500 shadow-sm animate-pulse"></span>`;
                 }
 
-                // 組合日曆格子內部 HTML (專注模式下隱藏記事文字預覽，維持乾淨版面)
                 const showNoteText = hasNote && !isFocusMode;
                 cell.innerHTML = `
                     <div class="flex justify-between items-start w-full">
@@ -673,11 +687,10 @@
                 grid.appendChild(cell);
             }
 
-            // 更新左側便籤
             updateSidebarNotes();
         }
 
-        // 8. 記事編輯彈窗邏輯
+        // 記事彈窗邏輯
         const modal = document.getElementById('note-modal');
         const modalTitle = document.getElementById('modal-date-title');
         const modalLunarInfo = document.getElementById('modal-lunar-info');
@@ -688,7 +701,6 @@
             selectedDateKey = dateKey;
             modalTitle.innerText = `${currentYear} 年 9 月 ${day} 日 歲時備忘錄`;
             
-            // 重置雙擊刪除狀態
             showDeleteConfirm = false;
             btnDelete.innerText = "刪除記錄";
             btnDelete.className = "px-3 py-2 text-xs text-red-600 hover:bg-red-50 rounded-xl transition-theme font-medium";
@@ -720,7 +732,6 @@
             }, 150);
         }
 
-        // 儲存記事
         function saveNote() {
             const content = modalTextarea.value.trim();
             if (content) {
@@ -732,7 +743,6 @@
             renderCalendar();
         }
 
-        // 安全刪除機制
         function deleteNote() {
             if (!showDeleteConfirm) {
                 showDeleteConfirm = true;
@@ -746,10 +756,8 @@
             }
         }
 
-        // 頁面初始化
         window.onload = () => {
             renderCalendar();
-            // 在初始化時立刻根據輸入框的預設值繪製 QR Code
             updateQrCode(document.getElementById('qr-input').value);
         };
     </script>
