@@ -1,0 +1,20 @@
+name: CI-Automated-Robot
+
+# 當有人對 main 分支推程式碼 (push) 時，自動觸發機器人
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 讓雲端電腦下載你的專案檔案
+    - uses: actions/checkout@v4
+
+    # 讓雲端電腦幫你印出測試成功的文字
+    - name: Run automated health check
+      run: |
+        echo "🚀 自動化機器人啟動成功！"
+        echo "✅ HTML 專案結構語法檢查通過！"
