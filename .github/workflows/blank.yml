@@ -17,4 +17,4 @@ jobs:
     - name: Run automated health check
       run: |
         echo "🚀 自動化機器人啟動成功！"
-        echo "✅ HTML 專案結構語法檢查通過！"
+        echo "自動化大成功！"
